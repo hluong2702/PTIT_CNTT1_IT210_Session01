@@ -1,0 +1,6 @@
+Class tự tạo dependency → vi phạm IoC
+Gây phụ thuộc chặt (tight coupling)
+Khó thay đổi, khó test
+
+Sai ở dòng
+this.gateway = new InternalPaymentGateway();

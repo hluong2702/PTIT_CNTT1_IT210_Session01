@@ -1,0 +1,21 @@
+Khi bạn dùng @Component, Spring sẽ tạo 1 instance duy nhất của PlaySession cho toàn bộ ứng dụng.
+- Vấn đề trong code
+private double playTime = 0;
+Biến playTime là state dùng chung
+Vì PlaySession là Singleton, nên:
+-Tất cả user/request đều dùng chung biến này
+-Hiện tượng xảy ra (tính nhầm tiền)
+
+Ví dụ:
+User A chơi 2 giờ → playTime = 2
+User B chơi 1 giờ → playTime = 3 (đáng ra phải là 1)
+Khi tính tiền:
+User B bị tính tiền = 3 giờ thay vì 1 giờ
+-Nguyên nhân sâu xa
+Singleton Bean → shared state
+Không tách riêng dữ liệu cho từng user/session
+Dẫn đến:
+Sai dữ liệu
+Race condition (nếu đa luồng)
+Logic sai
+

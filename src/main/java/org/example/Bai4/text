@@ -1,0 +1,33 @@
+1. Phân tích yêu cầu
+Hệ thống cần gửi thông báo:
+Email
+SMS
+Có rủi ro:
+SMS bị lỗi do mất mạng
+Yêu cầu:
+Hệ thống vẫn hoạt động (fallback)
+Dễ test, dễ mở rộng
+2. So sánh các cách Dependency Injection
+        Tiêu chí	       Constructor Injection	Field Injection
+Đảm bảo dependency tồn tại	Luôn có	                 Có thể null
+Rõ ràng thiết kế	        Rõ (qua constructor)	 Ẩn
+Dễ test	                    Dễ mock	                 Khó
+Tính bất biến	            Có thể	                Không
+Khả năng mở rộng	        Tốt	                    Trung bình
+Xử lý lỗi (SMS fail)	 Dễ implement fallback	️ Khó kiểm soát
+Code ngắn gọn	            Dài hơn	                Ngắn
+3. Phân tích “bẫy dữ liệu”
+Khi SMS bị lỗi:
+Cần fallback sang Email
+Nếu dùng thiết kế kém:
+Có thể crash hệ thống
+Cần:
+Kiểm soát dependency rõ ràng
+Dễ thêm logic xử lý lỗi
+4. Lựa chọn tối ưu
+Chọn: Constructor Injection
+Lý do:
+Đảm bảo dependency luôn sẵn sàng
+Dễ kiểm soát luồng xử lý (fallback khi SMS lỗi)
+Dễ test với mock (giả lập SMS fail)
+Thiết kế rõ ràng, chuẩn Clean Code

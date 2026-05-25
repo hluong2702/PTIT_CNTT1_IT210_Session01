@@ -1,0 +1,24 @@
+1. Input
+username: tên người dùng
+foodName: tên món ăn
+quantity: số lượng
+2. Output
+Thành công:
+"Đặt món thành công"
+Thất bại:
+"Người dùng không tồn tại"
+"Món ăn đã hết"
+"Không đủ số dư"
+3. Logic xử lý
+Nhận username, foodName, quantity
+Kiểm tra user tồn tại
+Nếu không → trả "Người dùng không tồn tại"
+Kiểm tra tồn kho
+Nếu stock < quantity → trả "Món ăn đã hết"
+Lấy giá món ăn
+Tính total = price * quantity
+Kiểm tra số dư
+Nếu balance < total → trả "Không đủ số dư"
+Trừ tiền user
+Trừ số lượng kho
+Trả "Đặt món thành công"
